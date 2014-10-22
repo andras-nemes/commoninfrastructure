@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA3126C1-F135-41CF-8629-CB13F04E8A43}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyCompany.Infrastructure.Common</RootNamespace>
+    <AssemblyName>MyCompany.Infrastructure.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\HttpContextCacheStorage.cs" />
+    <Compile Include="Caching\ICacheStorage.cs" />
+    <Compile Include="Caching\NoCacheStorage.cs" />
+    <Compile Include="Caching\SystemRuntimeCacheStorage.cs" />
+    <Compile Include="Configuration\ConfigFileConfigurationRepository.cs" />
+    <Compile Include="Configuration\IConfigurationRepository.cs" />
+    <Compile Include="ContextProvider\ContextProperties.cs" />
+    <Compile Include="ContextProvider\HttpContextService.cs" />
+    <Compile Include="ContextProvider\IContextService.cs" />
+    <Compile Include="ContextProvider\ThreadContextService.cs" />
+    <Compile Include="Cryptography\Asymmetric\AsymmetricDecryptionArguments.cs" />
+    <Compile Include="Cryptography\Asymmetric\AsymmetricDecryptionResult.cs" />
+    <Compile Include="Cryptography\Asymmetric\AsymmetricEncryptionArguments.cs" />
+    <Compile Include="Cryptography\Asymmetric\AsymmetricEncryptionResult.cs" />
+    <Compile Include="Cryptography\Asymmetric\AsymmetricKeyPairGenerationResult.cs" />
+    <Compile Include="Cryptography\DigitalSignature\DigitalSignatureVerificationArguments.cs" />
+    <Compile Include="Cryptography\DigitalSignature\DigitalSignatureVerificationResult.cs" />
+    <Compile Include="Cryptography\DigitalSignature\DigitalSignatureCreationArguments.cs" />
+    <Compile Include="Cryptography\DigitalSignature\DigitalSignatureCreationResult.cs" />
+    <Compile Include="Cryptography\DigitalSignature\IEncryptedDigitalSignatureService.cs" />
+    <Compile Include="Cryptography\DigitalSignature\RsaPkcs1DigitalSignatureService.cs" />
+    <Compile Include="Cryptography\Hashing\HashResult.cs" />
+    <Compile Include="Cryptography\Hashing\IHashingService.cs" />
+    <Compile Include="Cryptography\Hashing\Sha1ManagedHashingService.cs" />
+    <Compile Include="Cryptography\Hashing\Sha512ManagedHashingService.cs" />
+    <Compile Include="Cryptography\ResponseBase.cs" />
+    <Compile Include="Cryptography\Symmetric\CommonSymmetricCryptoArguments.cs" />
+    <Compile Include="Cryptography\Asymmetric\IAsymmetricCryptographyService.cs" />
+    <Compile Include="Cryptography\Symmetric\ISymmetricCryptographyService.cs" />
+    <Compile Include="Cryptography\Symmetric\RijndaelManagedSymmetricEncryptionService.cs" />
+    <Compile Include="Cryptography\Asymmetric\RsaAsymmetricCryptographyService.cs" />
+    <Compile Include="Cryptography\Symmetric\SymmetricDecryptionArguments.cs" />
+    <Compile Include="Cryptography\CipherTextDecryptionResult.cs" />
+    <Compile Include="Cryptography\Symmetric\SymmetricEncryptionArguments.cs" />
+    <Compile Include="Cryptography\Symmetric\SymmetricEncryptionResult.cs" />
+    <Compile Include="Cryptography\Symmetric\SymmetricKeyGenerationResult.cs" />
+    <Compile Include="Email\EmailArguments.cs" />
+    <Compile Include="Email\EmailExtensions.cs" />
+    <Compile Include="Email\EmailSendingResult.cs" />
+    <Compile Include="Email\EmbeddedEmailResource.cs" />
+    <Compile Include="Email\EmbeddedEmailResourceType.cs" />
+    <Compile Include="Email\IEmailService.cs" />
+    <Compile Include="Email\SystemNetEmailService.cs" />
+    <Compile Include="FileOperations\DefaultFileService.cs" />
+    <Compile Include="FileOperations\IFileService.cs" />
+    <Compile Include="Logging\ConsoleLoggingService.cs" />
+    <Compile Include="Logging\ILoggingService.cs" />
+    <Compile Include="Logging\Log4NetLoggingService.cs" />
+    <Compile Include="Logging\LogProviderContext.cs" />
+    <Compile Include="Logging\NoLogService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
